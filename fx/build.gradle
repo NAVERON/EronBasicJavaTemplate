@@ -6,6 +6,7 @@ plugins {
     id 'eclipse' 
     id 'java' 
     
+    // https://github.com/openjfx/javafx-gradle-plugin
     id 'org.openjfx.javafxplugin' version '0.0.12' 
     id 'org.jetbrains.kotlin.jvm' version '1.4.30' 
     
@@ -28,6 +29,18 @@ repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
     gradlePluginPortal()
 }
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'org.openjfx:javafx-plugin:0.0.12'
+    }
+}
+apply plugin: 'org.openjfx.javafxplugin'
 
 dependencies {
     // This dependency is used by the basic project .
